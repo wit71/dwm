@@ -95,6 +95,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY,                       XK_F9,     spawn,          SHCMD("xbacklight -inc 1") },
+	{ MODKEY,                       XK_F8,     spawn,          SHCMD("xbacklight -dec 1") },
 };
 
 /* button definitions */
