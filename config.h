@@ -61,8 +61,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "urxvt", NULL };
 static const char *stcmd[]    = { "st", NULL };
 //volume controls
-static const char *upvol[]   = { "amixer", "-q", "set", "Master", "2%+", "unmute", NULL };
-static const char *downvol[] = { "amixer", "-q", "set", "Master", "2%-", "unmute", NULL };
+static const char *upvol[]   = { "amixer", "-q", "set", "Master", "1%+", "unmute", NULL };
+static const char *downvol[] = { "amixer", "-q", "set", "Master", "1%-", "unmute", NULL };
 static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
 
 
