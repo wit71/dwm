@@ -59,11 +59,18 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
+static const char *stcmd[]    = { "st", NULL };
+//volume controls
+static const char *upvol[]   = { "amixer", "-q", "set", "Master", "2%+", "unmute", NULL };
+static const char *downvol[] = { "amixer", "-q", "set", "Master", "2%-", "unmute", NULL };
+static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = stcmd } },
 	{ MODKEY,                       XK_t,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -97,6 +104,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY,                       XK_F9,     spawn,               SHCMD("xbacklight -inc 1") },
 	{ MODKEY,                       XK_F8,     spawn,               SHCMD("xbacklight -dec 1") },
+	{ MODKEY,                       XK_F3,     spawn,          {.v = mutevol } },
+	{ MODKEY,                       XK_F5,     spawn,          {.v = downvol } },
+	{ MODKEY,                       XK_F6,     spawn,          {.v = upvol } },
+
 };
 
 /* button definitions */
